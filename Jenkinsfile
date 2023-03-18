@@ -25,6 +25,7 @@ pipeline {
                         sh "kubectl apply -f nginx-deployment.yaml"
                         sh "kubectl apply -f nginx-service.yaml"
                         sh "kubectl apply -f weave-daemonset-k8s.yaml"
+                        sh "kubectl apply -f complete-demo.yaml"
                     }
                 }
             }
