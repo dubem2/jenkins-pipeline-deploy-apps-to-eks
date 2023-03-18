@@ -30,5 +30,14 @@ pipeline {
                 }
             }
         }
+         stage("Run Script") {
+            steps {
+                script {
+                    dir('Ingress') {
+                        sh "Ingress.sh"
+                    }
+                }
+            }
+        }
     }
 }
