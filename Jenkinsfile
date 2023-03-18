@@ -22,22 +22,20 @@ pipeline {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl apply -f nginx-deployment.yaml"
-                        sh "kubectl apply -f nginx-service.yaml"
-                        sh "kubectl apply -f weave-daemonset-k8s.yaml"
                         sh "kubectl apply -f complete-demo.yaml"
+                        sh "kubectl apply -f notes-app.yaml"
                     }
                 }
             }
         }
-         stage("Run Script") {
-            steps {
-                script {
-                    dir('Ingress') {
-                        sh "Ingress.sh"
-                    }
-                }
-            }
-        }
+        //  stage("Run Script") {
+        //     steps {
+        //         script {
+        //             dir('Ingress') {
+        //                 sh "Ingress.sh"
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
