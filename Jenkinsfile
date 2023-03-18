@@ -17,26 +17,26 @@ pipeline {
                 }
             }
         }
-        // stage("Deploy sock-shop to EKS") {
-        //     steps {
-        //         script {
-        //             dir('kubernetes') {
-        //                 sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-        //                 sh "kubectl apply -f complete-demo.yaml"
-        //             }
-        //         }
-        //     }
-        // }
-        // stage("Deploy portfolio to EKS") {
-        //     steps {
-        //         script {
-        //             dir('kubernetes') {
-        //                 sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-        //                 sh "kubectl apply -f portfolio.yaml"
-        //             }
-        //         }
-        //     }
-        // }
+        stage("Deploy sock-shop to EKS") {
+            steps {
+                script {
+                    dir('kubernetes') {
+                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        sh "kubectl apply -f complete-demo.yaml"
+                    }
+                }
+            }
+        }
+        stage("Deploy portfolio to EKS") {
+            steps {
+                script {
+                    dir('kubernetes') {
+                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        sh "kubectl apply -f portfolio.yaml"
+                    }
+                }
+            }
+        }
          
         //  
         //  stage("Run Script") {
