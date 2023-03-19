@@ -27,12 +27,12 @@ pipeline {
                 }
             }
         }
-        stage("Deploy portfolio to EKS") {
+        stage("Deploy nginx to EKS") {
             steps {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl apply -f portfolio.yaml"
+                        sh "kubectl apply -f nginx-deployment.yaml"
                     }
                 }
             }
