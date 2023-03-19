@@ -43,8 +43,8 @@ pipeline {
                     dir('monitoring') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
                         sh "kubectl create -f 00-monitoring-ns.yaml"
-                        sh 'kubectl apply $(ls *-prometheus-*.yaml | awk " { print '-f' $1 }" )'
-                        sh 'kubectl apply $(ls *-grafana-*.yaml | awk " { print '-f' $1 }"  | grep -v grafana-import)'
+                        sh "kubectl apply \$(ls *-prometheus-*.yaml | awk ' { print "-f" \$1 }' )"
+                        sh "kubectl apply \$(ls *-grafana-*.yaml | awk ' { print "-f" \$1 }'  | grep -v grafana-import)"
                         sh "kubectl apply -f 23-grafana-import-dash-batch.yaml"
                     }
                 }
