@@ -1,14 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
+  name: nginx
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: nginx
+  replicas: 1
   template:
     metadata:
       labels:
@@ -16,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: dubem2/portfolio:1.0
+        image: nginx
         ports:
         - containerPort: 80
 ---
